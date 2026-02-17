@@ -1,60 +1,63 @@
 const form = document.getElementById("testimonialForm");
 const list = document.getElementById("testimonialList");
 
-// Default testimonials
-let testimonials = JSON.parse(localStorage.getItem("testimonials")) || [
+let testimonials = JSON.parse(localStorage.getItem("clinicTestimonials")) || [
 {
-name: "Emily R.",
-message: "Amazing service — highly recommended!",
-rating: 5
+name: "Judith O.",
+message: "The treatment results exceeded my expectations. My skin feels renewed and radiant.",
+rating: 5,
+recommend: true
 },
 {
-name: "Sophia L.",
-message: "Professional and friendly experience.",
-rating: 5
+name: "Jezreal Benadatte",
+message: "Professional, gentle, and effective care. I trust them completely.",
+rating: 5,
+recommend: true
 }
 ];
 
-function saveTestimonials() {
-localStorage.setItem("testimonials", JSON.stringify(testimonials));
+function saveData() {
+localStorage.setItem("clinicTestimonials", JSON.stringify(testimonials));
 }
 
 function renderTestimonials() {
 list.innerHTML = "";
 
-testimonials.reverse().forEach(t => {
+[...testimonials].reverse().forEach(t => {
 
-const stars = "★".repeat(t.rating);
+const stars = "★★★★★".slice(0, t.rating);
 
 const card = document.createElement("div");
 card.className = "card";
 
 card.innerHTML = `
-<h4>${t.name}</h4>
-<div class="stars">${stars}</div>
+<div class="quote">“</div>
 <p>${t.message}</p>
+<div class="name">${t.name}
+${t.recommend ? '<span class="badge">✓ Recommends</span>' : ''}
+</div>
+<div class="stars">${stars}</div>
 `;
 
 list.appendChild(card);
 
 });
-
 }
 
 form.addEventListener("submit", e => {
 e.preventDefault();
 
-const newTestimonial = {
+const newReview = {
 name: document.getElementById("name").value,
 message: document.getElementById("message").value,
-rating: parseInt(document.getElementById("rating").value)
+rating: parseInt(document.getElementById("rating").value),
+recommend: document.getElementById("recommend").checked
 };
 
-testimonials.push(newTestimonial);
+testimonials.push(newReview);
 
-saveTestimonials();
+saveData();
 renderTestimonials();
-
 form.reset();
 });
 
