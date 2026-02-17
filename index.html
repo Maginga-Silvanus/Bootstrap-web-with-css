@@ -458,7 +458,39 @@
 			</div>
 		</section>
 		<!--/ End service -->
+		<!--Start Testimonials-->
+		<section class="testimonials-section">
+			<div class="container">
+				<h2>What Our Clients Say</h2>
+				<p class="subtitle">We appreciate your feedback!</p>
 
+				<div class="testimonials" id="testimonialList">
+				<div class="testimonial-card">
+					<p class="message">
+					"Amazing service and great support Offered !"
+					</p>
+					<h4>- Jezreal Benadatte</h4>
+					<div class="stars">★★★★★</div>
+				</div>
+				</div>
+
+				<button class="btn" onclick="toggleForm()">Add Your Testimonial</button>
+
+				<div class="form-container" id="testimonialForm">
+				<input type="text" id="name" placeholder="Your Name">
+				<textarea id="message" placeholder="Your Testimonial"></textarea>
+				<select id="rating">
+					<option value="5">★★★★★</option>
+					<option value="4">★★★★</option>
+					<option value="3">★★★</option>
+					<option value="2">★★</option>
+					<option value="1">★</option>
+				</select>
+				<button onclick="addTestimonial()">Submit</button>
+				</div>
+			</div>
+		</section>
+		<!--/ End Testimonials-->
 		<!-- Footer Area -->
 		<footer id="footer" class="footer ">
 			<!-- Footer Top -->
@@ -522,6 +554,7 @@
 		</footer>
 		<!--/ End Footer Area -->
 		
+		<script src="script.js"></script>
 		<!-- jquery Min JS -->
         <script src="js/jquery.min.js"></script>
 		<!-- jquery Migrate JS -->
