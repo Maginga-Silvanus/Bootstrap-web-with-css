@@ -1,18 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-  const button = document.getElementById("openTestimonialBtn");
+function toggleForm() {
   const form = document.getElementById("testimonialForm");
-
-  button.addEventListener("click", function () {
-    if (form.style.display === "block") {
-      form.style.display = "none";
-    } else {
-      form.style.display = "block";
-    }
-  });
-
-});
-
+  form.style.display = form.style.display === "block" ? "none" : "block";
+}
 
 function addTestimonial() {
   const name = document.getElementById("name").value;
